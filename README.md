@@ -23,17 +23,11 @@
 - `foreground_mask`：前景软蒙版；
 - `report_json`：检测、几何和输出设置报告。
 
-## 通过 ComfyUI Manager 安装
+## 安装方式说明
 
-公开仓库可以直接使用 Git URL：
+本节点暂未登记到 ComfyUI Registry，当前推荐使用 Git 手动安装。新版 ComfyUI Manager 不支持安装任意 Git URL；旧版 Manager 只有在界面仍提供 `Install via Git URL` 且安全等级允许高风险操作时才可使用该入口。
 
-1. 打开 ComfyUI Manager；
-2. 进入 `Install via Git URL`；
-3. 输入 `https://github.com/lin-sein/lace-studio-refine-comfyui`；
-4. 安装完成后重启 ComfyUI；
-5. 搜索 `Lace Studio 精修 v0.1`。
-
-私有仓库必须先让运行 ComfyUI 的机器具备 GitHub 读取权限，再使用下面的手动方式安装。
+当前 GitHub 仓库为私有仓库，必须先让运行 ComfyUI 的机器具备 GitHub 读取权限。
 
 ## Windows Portable 手动安装
 
@@ -46,7 +40,7 @@ git clone https://github.com/lin-sein/lace-studio-refine-comfyui.git ComfyUI/cus
 
 然后完全关闭并重新启动 ComfyUI。
 
-如果仓库保持私有，推荐先在服务器运行 `gh auth login`，再把第一条命令替换为：
+先在服务器运行 `gh auth login`，再使用：
 
 ```powershell
 gh repo clone lin-sein/lace-studio-refine-comfyui ComfyUI/custom_nodes/lace-studio-refine-comfyui
