@@ -1,0 +1,24 @@
+[project]
+name = "lace-studio-refine"
+version = "0.1.1"
+description = "Deterministic lace scan cleanup, repeat reconstruction, background replacement, and mask output for ComfyUI."
+requires-python = ">=3.10,<3.14"
+license = { text = "All rights reserved" }
+dependencies = [
+  "numpy>=1.26,<3",
+  "opencv-python-headless>=4.8,<5",
+  "Pillow>=10,<13",
+]
+classifiers = [
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+]
+
+[project.urls]
+Repository = "https://github.com/lin-sein/lace-studio-refine-comfyui"
+Documentation = "https://github.com/lin-sein/lace-studio-refine-comfyui#readme"
+"Bug Tracker" = "https://github.com/lin-sein/lace-studio-refine-comfyui/issues"
+
+[tool.comfy]
+PublisherId = "lin-sein"
+DisplayName = "Lace Studio Refine"

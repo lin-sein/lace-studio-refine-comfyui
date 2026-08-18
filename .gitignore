@@ -1,5 +1,7 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.registry-venv/
+node.zip
 .DS_Store
 Thumbs.db
