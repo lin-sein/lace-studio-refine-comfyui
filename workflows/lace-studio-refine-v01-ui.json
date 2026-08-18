@@ -1,0 +1,90 @@
+{
+  "last_node_id": 5,
+  "last_link_id": 4,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [-620, 20],
+      "size": [300, 320],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {"name": "IMAGE", "type": "IMAGE", "links": [1]},
+        {"name": "MASK", "type": "MASK", "links": null}
+      ],
+      "properties": {"Node name for S&R": "LoadImage"},
+      "widgets_values": ["lace-input.png", "image"]
+    },
+    {
+      "id": 2,
+      "type": "LaceStudioRefineV01",
+      "pos": [-180, 40],
+      "size": [330, 190],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [{"name": "image", "type": "IMAGE", "link": 1}],
+      "outputs": [
+        {"name": "refined_image", "type": "IMAGE", "links": [2]},
+        {"name": "foreground_mask", "type": "MASK", "links": [3]},
+        {"name": "report_json", "type": "STRING", "links": null}
+      ],
+      "properties": {"Node name for S&R": "LaceStudioRefineV01"},
+      "widgets_values": ["auto", "auto", 50]
+    },
+    {
+      "id": 3,
+      "type": "SaveImage",
+      "pos": [660, -120],
+      "size": [360, 300],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [{"name": "images", "type": "IMAGE", "link": 2}],
+      "outputs": [],
+      "properties": {"Node name for S&R": "SaveImage"},
+      "widgets_values": ["lace-refine/v0.1/refined"]
+    },
+    {
+      "id": 4,
+      "type": "MaskToImage",
+      "pos": [230, 250],
+      "size": [260, 46],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [{"name": "mask", "type": "MASK", "link": 3}],
+      "outputs": [{"name": "IMAGE", "type": "IMAGE", "links": [4]}],
+      "properties": {"Node name for S&R": "MaskToImage"},
+      "widgets_values": []
+    },
+    {
+      "id": 5,
+      "type": "SaveImage",
+      "pos": [660, 240],
+      "size": [360, 300],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [{"name": "images", "type": "IMAGE", "link": 4}],
+      "outputs": [],
+      "properties": {"Node name for S&R": "SaveImage"},
+      "widgets_values": ["lace-refine/v0.1/mask"]
+    }
+  ],
+  "links": [
+    [1, 1, 0, 2, 0, "IMAGE"],
+    [2, 2, 0, 3, 0, "IMAGE"],
+    [3, 2, 1, 4, 0, "MASK"],
+    [4, 4, 0, 5, 0, "IMAGE"]
+  ],
+  "groups": [
+    {"title": "Lace Studio 精修 v0.1", "bounding": [-660, -170, 1720, 760], "color": "#b76e8b", "font_size": 24}
+  ],
+  "config": {},
+  "extra": {"ds": {"scale": 0.9, "offset": [650, 350]}},
+  "version": 0.4
+}
