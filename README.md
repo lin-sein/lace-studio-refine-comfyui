@@ -39,6 +39,14 @@ lace-studio-refine
 
 通过 Registry 安装不需要开启旧版 Manager 的 `Install via Git URL` 高风险功能。
 
+### `0.1.2` 依赖修复
+
+`0.1.2` 修复 NumPy 2 与旧 OpenCV 轮子混用时的
+`numpy.core.multiarray failed to import` 故障，并在运行时导入失败后清理半初始化的模块缓存。
+
+从 `0.1.1` 更新时，请在 Manager 完成节点和依赖更新后完整重启 ComfyUI。
+如果 Manager 显示依赖安装失败，不要继续运行工作流；应先保留安装日志。
+
 ## 通过 Git 安装
 
 GitHub 仓库为公开仓库，可以直接克隆。旧版 Manager 只有在界面仍提供 `Install via Git URL` 且安全等级允许高风险操作时，才能使用该入口。
@@ -92,6 +100,10 @@ git pull --ff-only
 ```
 
 依赖文件发生变化时重新执行 `pip install -r requirements.txt`，然后重启 ComfyUI。
+
+`0.1.2` 使用已验证的 NumPy 2 / OpenCV 4.13 ABI 组合。请不要在同一 Python
+环境中手工混装多个 `opencv-python*` 发行包；如果导入仍失败，新的错误信息会列出
+实际检测到的 NumPy 和 OpenCV 发行包版本。
 
 ## v0.1 边界
 
